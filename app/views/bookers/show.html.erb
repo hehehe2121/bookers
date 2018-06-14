@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+<div class="show-box-top">
+	<p>
+		<span><strong>Title:</strong></span>
+		<span><%= @booker.title %></span>
+	</p>
+	<p>
+		<span><strong>本文:</strong></span>
+		<span><%= @booker.body %></span>
+	</p>
+</div>
+<div class="show-box-bottom">
+	<span class="show-edit"><%= link_to "edit", edit_booker_path(@booker.id) %></span>
+	<span class="show-back"><%= link_to "Back", bookers_index_path, class: "back" %></span>
+</div>
