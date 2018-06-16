@@ -19,8 +19,8 @@
 	</div>
 <% end %>
 	<div class="edit-box-bottom">
-		<span class="edit-show"><%= link_to "show", booker_path(@booker.id) %>
+		<span class="edit-show"><%= link_to "show", booker_path(@booker.id), class: "show_#{@booker.id}" %>
 		</span>
-		<span class="edit-back"><%= link_to "Back", bookers_index_path %>
+		<span class="edit-back"><%= link_to "Back", bookers_index_path, class: "back" %>
 		</span>
 	</div>

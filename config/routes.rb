@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 	get 'bookers/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   	# get 'bookers/show' => 'bookers#show'
-  	get 'bookers/top' => 'bookers#top'
+    root :to => 'bookers#top'
   	post '/bookers' => 'bookers#create'
   	get '/bookers/index' => 'bookers#index'
   	get '/bookers/:id' => 'bookers#show', as: 'booker'

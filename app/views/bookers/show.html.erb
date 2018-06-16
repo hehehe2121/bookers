@@ -14,6 +14,6 @@
 	</p>
 </div>
 <div class="show-box-bottom">
-	<span class="show-edit"><%= link_to "edit", edit_booker_path(@booker.id) %></span>
+	<span class="show-edit"><%= link_to "edit", edit_booker_path(@booker.id),class: "edit_#{@booker.id}" %></span>
 	<span class="show-back"><%= link_to "Back", bookers_index_path, class: "back" %></span>
 </div>
