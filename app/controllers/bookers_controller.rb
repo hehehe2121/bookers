@@ -15,7 +15,7 @@ class BookersController < ApplicationController
       @book = Booker.new(booker_params)
        if @book.save
           flash[:notice] = "Book was successfully created."
-          redirect_to booker_path(booker.id)
+          redirect_to booker_path(@book.id)
        else
           @bookers = Booker.all
           @booker = @book
