@@ -34,12 +34,12 @@ class BookersController < ApplicationController
   end
 
   def update
-      booker = Booker.find(params[:id])
-      if booker.update(booker_params)
+      @booker = Booker.find(params[:id])
+      if @booker.update(booker_params)
          flash[:notice] = "Book was successfully updated."
-         redirect_to booker_path(booker.id)
+         redirect_to booker_path(@booker.id)
       else
-        render action: :show
+        render action: :edit
       end
   end
 
