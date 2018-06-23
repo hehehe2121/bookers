@@ -8,11 +8,11 @@
 <%= form_for(@booker) do |f| %>
 	<div class="edit-title">
 		<h4>Title</h4>
-		<%= f.text_field :title %>
+		<%= f.text_field :title, class:"book_title" %>
 	</div>
 	<div class="edit-body">
 		<h4>body</h4>
-		<%= f.text_area :body %>
+		<%= f.text_area :body, class:"book_body" %>
 	</div>
 	<div>
 		<%= f.submit 'Update Book' %>
