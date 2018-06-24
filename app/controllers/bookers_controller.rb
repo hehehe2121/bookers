@@ -1,6 +1,8 @@
 class BookersController < ApplicationController
   def top
   end
+  def about
+  end
 
   def index
       @bookers = Booker.all
@@ -9,10 +11,12 @@ class BookersController < ApplicationController
 
   def show
       @booker = Booker.find(params[:id])
+      @user = @booker.user
   end
 
   def create
       @book = Booker.new(booker_params)
+      @book.user_id = current_user.id
        if @book.save
           flash[:notice] = "Book was successfully created."
           redirect_to booker_path(@book.id)
@@ -21,12 +25,7 @@ class BookersController < ApplicationController
           @booker = @book
           # binding pry
           render action: :index
-        end
-  end
-
-  def new
-      #空のモデル渡す
-      @booker = Booker.new
+      end
   end
 
   def edit
@@ -46,10 +45,9 @@ class BookersController < ApplicationController
   def destroy
       booker = Booker.find(params[:id])
       booker.destroy
-      redirect_to bookers_index_path
+      redirect_to bookers_path
   end
-
   def booker_params
-      params.require(:booker).permit(:title, :body)
+      params.require(:booker).permit(:title, :body, :user_id)
   end
 end

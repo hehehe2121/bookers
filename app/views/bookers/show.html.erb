@@ -1,19 +1,40 @@
-<% if flash[:notice] %>
-	<div class="flash">
-		<%= flash[:notice] %>
+<div class="container">
+	<div class="low">
+		<div class="col-xs-3">
+			<div class="profile-container">
+				<%= render 'users/list', user: @user %>
+				<%= render 'bookers/list', booker: @booker %>
+			</div>
+		</div>
+		<div class="col-xs-9">
+			<% if flash[:notice] %>
+				<div class="flash">
+					<%= flash[:notice] %>
+				</div>
+			<% end %>
+			<div class="show-box-top">
+				<h2>Book detail</h2>
+				 <table class="table table-striped">
+					<thead>
+						<tr>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><%= @booker.title %></td>
+							<td><%= @booker.body %></td>
+							<% if @booker.user == current_user %>
+								<td><%= link_to "edit",edit_booker_path(@booker.id), class: "edit_#{@booker.id}" %></td>
+								<td><%= link_to "destroy",booker_path(@booker.id), class: "destroy_#{@booker.id}",method: :delete,"data-confirm" => "本当に消しますか?" %></td>
+							<% end %>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-<% end %>
-<div class="show-box-top">
-	<p>
-		<span><strong>Title:</strong></span>
-		<span><%= @booker.title %></span>
-	</p>
-	<p>
-		<span><strong>本文:</strong></span>
-		<span><%= @booker.body %></span>
-	</p>
 </div>
-<div class="show-box-bottom">
-	<span class="show-edit"><%= link_to "edit", edit_booker_path(@booker.id),class: "edit_#{@booker.id}" %></span>
-	<span class="show-back"><%= link_to "Back", bookers_index_path, class: "back" %></span>
-</div>
+
+

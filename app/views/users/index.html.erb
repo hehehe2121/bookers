@@ -6,29 +6,26 @@
 				<%= render 'bookers/list', booker: @booker %>
 			</div>
 		</div>
-
 		<div class="col-xs-9">
-			<h1>Books</h1>
-			<div class="aa">
+			<h2>Users</h2>
 				<table class="table table-striped">
 					<thead>
 						<tr>
+							<th>image</th>
+							<th>name</th>
 							<th></th>
-							<th>Title</th>
-							<th>Body</th>
 						</tr>
 					</thead>
 					<tbody>
-						<% @bookers.each do |booker| %>
+						<% @users.each do |user| %>
 						<tr>
-							<td><%= attachment_image_tag booker.user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle profile-img", fallback: "no_image.jpg" %></td>
-							<td><%= link_to booker.title, booker %></td>
-							<td><%= booker.body %></td>
+							<td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle profile-img", fallback: "no_image.jpg" %></td>
+							<td><%= user.name %></td>
+							<td><%= link_to 'show', user_path(user) %></td>
 						</tr>
 						<% end %>
 					</tbody>
 				</table>
-			</div>
 		</div>
 	</div>
 </div>
