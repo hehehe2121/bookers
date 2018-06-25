@@ -12725,3 +12725,9 @@ tr td img {
 .create-btn {
   width: 100%;
 }
+.show-box-top .btn {
+  color: #666;
+}
+.btn {
+  text-transform: capitalize;
+}
